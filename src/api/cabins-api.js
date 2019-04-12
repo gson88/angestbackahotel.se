@@ -1,7 +1,7 @@
 import fetch from '/utils/fetch/fetch';
 import requestsTypes from '/utils/fetch/request-types';
 
-class CabinsApi {
+class CabinsAPI {
   endpoint = process.env.REACT_APP_ENDPOINT_URL.concat('/cabins/');
 
   searchCabins = ({ checkin, checkout }) => {
@@ -11,4 +11,4 @@ class CabinsApi {
   };
 }
 
-export default new CabinsApi();
+export default new CabinsAPI();

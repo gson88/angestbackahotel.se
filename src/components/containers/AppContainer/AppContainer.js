@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -12,33 +12,31 @@ import SplashScreen from '/components/views/SplashScreen/SplashScreen';
 import CabinsContainer from '/components/containers/CabinsContainer/CabinsContainer';
 import { initApp } from './actions';
 
-class AppContainer extends Component {
-  componentDidMount () {
-    this.props.initApp();
-  }
+const AppContainer = props => {
+  useEffect(() => {
+    props.initApp();
+  }, []);
 
-  render () {
-    return (
-      <ConnectedRouter history={history}>
-        <div className="w-full h-full">
-          { !this.props.isInitialized ? (
-            <SplashScreen />
-          ) : (
-            <React.Fragment>
-              <Header />
-              <main role="main">
-                <Switch>
-                  <Route exact path={routes.cabins.path} component={CabinsContainer} />
-                </Switch>
-              </main>
-              <Footer />
-            </React.Fragment>
-          )}
-        </div>
-      </ConnectedRouter>
-    );
-  }
-}
+  return (
+    <ConnectedRouter history={history}>
+      <div className="w-full h-full">
+        { !props.isInitialized ? (
+          <SplashScreen />
+        ) : (
+          <React.Fragment>
+            <Header />
+            <main role="main">
+              <Switch>
+                <Route exact path={routes.cabins.path} component={CabinsContainer} />
+              </Switch>
+            </main>
+            <Footer />
+          </React.Fragment>
+        )}
+      </div>
+    </ConnectedRouter>
+  );
+};
 
 AppContainer.propTypes = {
   isInitialized: PropTypes.bool,

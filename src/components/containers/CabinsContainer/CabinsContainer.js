@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
@@ -9,26 +9,24 @@ import SearchCabinsFormContainer from '/components/containers/SearchForm/SearchF
 import CabinSearchResults from './components/CabinSearchResults/CabinSearchResults';
 import { searchCabins } from './actions';
 
-class CabinsContainer extends Component {
-  render () {
-    return (
-      <section className="CabinsContainer">
-        <StaticBackground
-          src="/images/stugan/stug6.jpg"
-          height="400px">
-          <IntlMessage wrapper={<h1 />} message="cabins.book_a_cabin.header" />
-        </StaticBackground>
-        <SectionContainer>
-          <SearchCabinsFormContainer onSearch={this.props.searchCabins} />
-          <CabinSearchResults
-            cabins={this.props.cabins}
-            isLoading={this.props.isSearching}
-          />
-        </SectionContainer>
-      </section>
-    );
-  }
-}
+const CabinsContainer = props => {
+  return (
+    <section className="CabinsContainer">
+      <StaticBackground
+        src="/images/stugan/stug6.jpg"
+        height="400px">
+        <IntlMessage wrapper={<h1 />} message="cabins.book_a_cabin.header" />
+      </StaticBackground>
+      <SectionContainer>
+        <SearchCabinsFormContainer onSearch={props.searchCabins} />
+        <CabinSearchResults
+          cabins={props.cabins}
+          isLoading={props.isSearching}
+        />
+      </SectionContainer>
+    </section>
+  );
+};
 
 CabinsContainer.propTypes = {
   isSearching: PropTypes.bool,

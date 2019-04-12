@@ -17,7 +17,7 @@ const Button = ({ type, className, onClick, isLoading, children }) => {
 };
 
 Button.propTypes = {
-  type: PropTypes.string,
+  type: PropTypes.oneOf([ 'submit', 'button' ]),
   className: PropTypes.string,
   onClick: PropTypes.func,
   isLoading: PropTypes.bool,

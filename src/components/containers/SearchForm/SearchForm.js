@@ -1,64 +1,58 @@
-import React, { Component } from 'react';
+import React, { useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { Input, Button } from '/components/views/form/index';
 import IntlMessage from '/components/views/IntlMessage/IntlMessage';
 import { formatDate, getTomorrowsDate } from '/utils/date-utils/date-utils';
+import useInputState from '/hooks/use-input-state';
+import Form from '/components/views/form/Form/Form';
 
-class SearchForm extends Component {
-  constructor (props) {
-    super(props);
-    this.minDate = formatDate(new Date(), 'Y-MM-DD');
-    const tomorrowString = formatDate(getTomorrowsDate(), 'Y-MM-DD');
+const SearchForm = props => {
+  const todayDateString = useMemo(() => formatDate(new Date(), 'Y-MM-DD'), []);
+  const tomorrowDateString = useMemo(() => formatDate(getTomorrowsDate(), 'Y-MM-DD'), []);
+  const [ checkInState, setCheckinState ] = useInputState(todayDateString);
+  const [ checkOutState, setCheckoutState ] = useInputState(tomorrowDateString);
 
-    this.state = {
-      checkin: this.minDate,
-      checkout: tomorrowString
-    };
-  }
+  const onSearchButtonClick = useCallback(() => {
+    props.onSearch({
+      ...checkInState,
+      ...checkOutState
+    });
+  }, [ checkInState, checkOutState ]);
 
-  onInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+  const inputClassNames = 'w-1/3 mr-4 xssm:mr-0 xssm:w-full xssm:mb-4';
 
-  onSearchButtonClick = () => {
-    this.props.onSearch(this.state);
-  };
-
-  render () {
-    const inputClassNames = 'w-1/3 mr-4 xssm:mr-0 xssm:w-full xssm:mb-4';
-
-    return (
+  return (
+    <Form onSubmit={onSearchButtonClick}>
       <article className="SearchForm flex justify-center sm:flex-col xs:flex-col">
         <Input
           type="date"
           className={inputClassNames}
           id="checkin"
           labelLangKey="web.booking.check_in.label"
-          value={this.state.checkin}
-          onChange={this.onInputChange}
-          min={this.minDate}
+          value={checkInState}
+          onChange={setCheckinState}
+          min={todayDateString}
         />
         <Input
           type="date"
           className={inputClassNames}
           id="checkout"
           labelLangKey="web.booking.check_out.label"
-          value={this.state.checkout}
-          onChange={this.onInputChange}
-          min={this.state.checkin}
+          value={checkOutState}
+          onChange={setCheckoutState}
+          min={checkInState}
         />
         <div className="flex items-end w-1/3 xssm:w-full">
           <Button
-            type="button"
-            className="w-full"
-            onClick={this.onSearchButtonClick}>
+            type="submit"
+            className="w-full">
             <IntlMessage message="web.booking.search_for_rooms.button" />
           </Button>
         </div>
       </article>
-    );
-  }
-}
+    </Form>
+  );
+};
 
 SearchForm.propTypes = {
   onSearch: PropTypes.func
