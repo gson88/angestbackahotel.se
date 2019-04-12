@@ -4,9 +4,9 @@ import requestsTypes from '/utils/fetch/request-types';
 class CabinsAPI {
   endpoint = process.env.REACT_APP_ENDPOINT_URL.concat('/cabins/');
 
-  searchCabins = ({ checkin, checkout }) => {
+  searchCabins = ({ checkIn, checkOut }) => {
     return fetch(
-      requestsTypes.createGetRequest(this.endpoint, { checkin, checkout })
+      requestsTypes.createGetRequest(this.endpoint, { checkIn, checkOut })
     );
   };
 }

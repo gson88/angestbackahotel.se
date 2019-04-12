@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
 
-export default function* requestSaga(api, { request=null, success=null, failure, ...action }, ...values) {
+export default function* requestSaga(api, { request=null, success=null, error, ...action }, ...values) {
   try {
     if (request !== null) {
       yield put({ type: request, ...action });
@@ -15,7 +15,7 @@ export default function* requestSaga(api, { request=null, success=null, failure,
     const { errors } = exception;
     if (errors) {
       yield put({
-        type: failure,
+        type: error,
         error: errors[0],
         errors,
         exception,

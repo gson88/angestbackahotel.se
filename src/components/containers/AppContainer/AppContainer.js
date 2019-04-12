@@ -23,7 +23,7 @@ const AppContainer = props => {
         { !props.isInitialized ? (
           <SplashScreen />
         ) : (
-          <React.Fragment>
+          <>
             <Header />
             <main role="main">
               <Switch>
@@ -31,7 +31,7 @@ const AppContainer = props => {
               </Switch>
             </main>
             <Footer />
-          </React.Fragment>
+          </>
         )}
       </div>
     </ConnectedRouter>

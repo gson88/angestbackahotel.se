@@ -9,13 +9,14 @@ import Form from '/components/views/form/Form/Form';
 const SearchForm = props => {
   const todayDateString = useMemo(() => formatDate(new Date(), 'Y-MM-DD'), []);
   const tomorrowDateString = useMemo(() => formatDate(getTomorrowsDate(), 'Y-MM-DD'), []);
+
   const [ checkInState, setCheckinState ] = useInputState(todayDateString);
   const [ checkOutState, setCheckoutState ] = useInputState(tomorrowDateString);
 
   const onSearchButtonClick = useCallback(() => {
     props.onSearch({
-      ...checkInState,
-      ...checkOutState
+      checkIn: checkInState,
+      checkOut: checkOutState
     });
   }, [ checkInState, checkOutState ]);
 

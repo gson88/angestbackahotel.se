@@ -1,7 +1,7 @@
 import CabinsContainerConstants from './constants';
 
-/** @param data {{checkin: string, checkout: string}} */
-export const searchCabins = data => ({
+/** @param data {{checkIn: string, checkOut: string}} */
+export const searchCabins = ({ checkIn, checkOut }) => ({
   type: CabinsContainerConstants.SEARCH_CABIN,
-  payload: { ...data }
+  payload: { checkIn, checkOut }
 });

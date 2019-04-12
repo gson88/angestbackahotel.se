@@ -3,13 +3,14 @@ import CabinsBookingFormContainerConstants from '/components/containers/CabinsCo
 import CabinsAPI from '/api/cabins-api';
 import requestSaga from './request-saga';
 
-export function* performCabinsSearchSaga ({ payload }) {
+export function* performCabinsSearchSaga ({ payload: { checkIn, checkOut } }) {
   yield requestSaga(CabinsAPI.searchCabins, {
     request: CabinsBookingFormContainerConstants.SEARCH_CABIN_REQUEST,
     success: CabinsBookingFormContainerConstants.SEARCH_CABIN_REQUEST_SUCCESS,
-    failure: CabinsBookingFormContainerConstants.SEARCH_CABIN_REQUEST_ERROR,
-    payload
-  }, payload);
+    error: CabinsBookingFormContainerConstants.SEARCH_CABIN_REQUEST_ERROR,
+    checkIn,
+    checkOut
+  }, { checkIn, checkOut });
 }
 
 export function* performCabinsSearchListenerSaga () {
