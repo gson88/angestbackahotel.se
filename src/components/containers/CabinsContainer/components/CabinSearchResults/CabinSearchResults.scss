@@ -1,0 +1,9 @@
+@import 'values';
+
+.CabinSearchResults {
+  .CabinSearchResultItem {
+    &:not(:last-of-type) {
+      margin-bottom: $largeSpacing;
+    }
+  }
+}

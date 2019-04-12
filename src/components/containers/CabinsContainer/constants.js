@@ -1,0 +1,8 @@
+const prefix = '@CabinsContainer/';
+
+export default {
+  SEARCH_CABIN: `${prefix}SEARCH_CABIN`,
+  SEARCH_CABIN_REQUEST: `${prefix}SEARCH_CABIN_REQUEST`,
+  SEARCH_CABIN_REQUEST_SUCCESS: `${prefix}SEARCH_CABIN_REQUEST_SUCCESS`,
+  SEARCH_CABIN_REQUEST_ERROR: `${prefix}SEARCH_CABIN_REQUEST_ERROR`
+};

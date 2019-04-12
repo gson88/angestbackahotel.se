@@ -1,0 +1,14 @@
+@import './palette';
+
+$standardSpacing: 1rem;
+$largeSpacing: $standardSpacing * 2;
+$hugeSpacing: $standardSpacing * 3;
+$smallSpacing: $standardSpacing * 0.5;
+$tinySpacing: $standardSpacing * 0.2;
+
+$fontSize: 14px;
+$fontColor: $fontColor;
+
+$borderColor: darken($headerFontColor, 30%);
+
+$borderRadius: 2px;

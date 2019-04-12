@@ -1,0 +1,9 @@
+@import 'values';
+
+.StaticBackground {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  border-bottom: 1px solid $borderColor;
+}

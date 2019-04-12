@@ -1,0 +1,25 @@
+@tailwind preflight;
+@tailwind components;
+@tailwind utilities;
+
+@import 'values';
+@import 'styles/a';
+@import 'styles/h';
+@import 'styles/input';
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  font-size: $fontSize;
+}
+
+body {
+  background-color: $backgroundColor;
+  color: $fontColor;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+::selection {
+  color: $backgroundColor;
+  background-color: white;
+}

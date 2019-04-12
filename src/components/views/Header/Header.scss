@@ -1,0 +1,69 @@
+@import 'values';
+@import 'palette';
+@import 'viewports';
+
+header.Header {
+  background-color: $headerBackgroundColor;
+  color: $headerFontColor;
+
+  .logo {
+    width: 30px;
+    height: 30px;
+    margin-right: $largeSpacing;
+
+    img {
+      clip-path: circle(15px);
+      transition: transform 0.1s ease;
+
+      &:hover {
+        transform: rotate(30deg);
+      }
+    }
+  }
+
+  nav {
+    > :not(:last-of-type) {
+      margin-right: $largeSpacing;
+    }
+
+    a.active {
+      color: $fontColor;
+    }
+  }
+
+  .temp-right {
+    .xs, .sm, .md, .lg, .xl {
+      display: none;
+    }
+
+    .xs {
+      @include xs-viewport () {
+        display: block;
+      }
+    }
+
+    .sm {
+      @include sm-viewport () {
+        display: block;
+      }
+    }
+
+    .md {
+      @include md-viewport () {
+        display: block;
+      }
+    }
+
+    .lg {
+      @include lg-viewport () {
+        display: block;
+      }
+    }
+
+    .xl {
+      @include xl-viewport () {
+        display: block;
+      }
+    }
+  }
+}

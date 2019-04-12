@@ -1,0 +1,30 @@
+@import 'values';
+@import 'palette';
+
+input[type=text], input[type=date] {
+  margin: 0;
+  padding: $standardSpacing;
+  outline-color: $backgroundColor;
+  border-radius: $borderRadius;
+}
+
+button {
+  padding: $standardSpacing;
+  background: none;
+  color: $fontColor;
+  border: 1px solid $fontColor;
+  border-radius: $borderRadius;
+  outline: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: $fontColor;
+    color: $backgroundColor;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

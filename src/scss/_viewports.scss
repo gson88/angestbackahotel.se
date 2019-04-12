@@ -1,0 +1,35 @@
+$xs-breakpoint: '(max-width: 576px)';
+$sm-breakpoint: '(min-width: 577px) and (max-width: 767px)';
+$md-breakpoint: '(min-width: 768px) and (max-width: 991px)';
+$lg-breakpoint: '(min-width: 992px) and (max-width: 1199px)';
+$xl-breakpoint: '(min-width: 1200px)';
+
+@mixin xs-viewport () {
+  @media #{$xs-breakpoint} {
+    @content;
+  }
+}
+
+@mixin sm-viewport () {
+  @media #{$sm-breakpoint} {
+    @content;
+  }
+}
+
+@mixin md-viewport () {
+  @media #{$md-breakpoint} {
+    @content;
+  }
+}
+
+@mixin lg-viewport () {
+  @media #{$lg-breakpoint} {
+    @content;
+  }
+}
+
+@mixin xl-viewport () {
+  @media #{$xl-breakpoint} {
+    @content;
+  }
+}

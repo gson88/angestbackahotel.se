@@ -1,0 +1,29 @@
+{
+  "cabins.book_a_cabin.header": "Book a cabin",
+
+  "cabins.cabin_type.ONE_BED.name": "Loner cabin",
+  "cabins.cabin_type.ONE_BED.description.line1": "The perfect cabin for the loner.",
+  "cabins.cabin_type.ONE_BED.description.line2": "Single room cabin where you can sit and think about life and stuff.",
+  "cabins.cabin_type.ONE_BED.description.line3": "Includes one bottle of Talisman whisky.",
+
+  "cabins.cabin_type.TWO_BEDS.name": "Two beds cabin",
+  "cabins.cabin_type.TWO_BEDS.description.line2": "Perfect for friends or couples that have grown apart.",
+  "cabins.cabin_type.TWO_BEDS.description.line3": "Beautiful view from the room window.",
+  "cabins.cabin_type.TWO_BEDS.description.line4": "Attention: No toilet.",
+
+  "cabins.cabin_type.TWIN_BED.name": "Twin bed cabin",
+  "cabins.cabin_type.TWIN_BED.description.line1": "Twin bed cabin description",
+
+  "cabins.cabin_type.HOST_BED.name": "Share bed with the host",
+  "cabins.cabin_type.HOST_BED.description.line1": "A unique chance to share bed with the owner of the Hotel facilities.",
+  "cabins.cabin_type.HOST_BED.description.line2": "Top rated experience by previous costumers.",
+  "cabins.cabin_type.HOST_BED.description.line3": "Toilet, high speed internet, TV (now with more than 4 channels!), open fireplace and more!",
+
+  "cabins.cabin_search_result_item.price_per_night": "Price per night",
+  "cabins.cabin_search_result_item.user_rating": "User rating",
+  "cabins.cabin_search_result_item.book_cabin.button": "Book cabin",
+  "cabins.cabin_search_result_item.not_available.text": "Not available chosen dates",
+  "cabins.cabin_search_result_item.search_other_dates.text": "Search for other dates",
+
+  "price": "{amount, number, SEK}"
+}
