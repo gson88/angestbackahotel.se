@@ -8,16 +8,6 @@
     "test": "node scripts/test.js"
   },
   "babel": {
-    "plugins": [
-      [
-        "module-resolver",
-        {
-          "root": [
-            "./src"
-          ]
-        }
-      ]
-    ],
     "presets": [
       "react-app"
     ]
@@ -28,9 +18,6 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
@@ -85,8 +72,12 @@
     "@babel/plugin-transform-async-to-generator": "^7.4.0",
     "@fortawesome/fontawesome-free": "^5.8.1",
     "@svgr/webpack": "4.2.0",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^11.13.4",
     "@types/prop-types": "^15.7.0",
     "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-redux": "^7.0.6",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.0.1",
     "babel-jest": "24.7.1",
@@ -146,6 +137,7 @@
     "style-loader": "0.23.1",
     "tailwindcss": "^0.7.4",
     "terser-webpack-plugin": "1.2.3",
+    "typescript": "^3.4.3",
     "url-loader": "1.1.2",
     "webpack": "4.30.0",
     "webpack-dev-server": "3.3.1",

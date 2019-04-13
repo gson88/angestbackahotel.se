@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "esnext",
+    "lib": ["es2018", "dom"],
+    "allowJs": true,
+    "jsx": "react",
+    "outDir": "./dist/",
+    "removeComments": true,
+    "traceResolution": false,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src/",
+    "paths": {
+      "/*": ["./*"]
+    }
+  }
+}

@@ -25,6 +25,7 @@ const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 const tailwindcss = require('tailwindcss');
+const CustomResolverPlugin = require('./CustomResolverPlugin');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -270,6 +271,7 @@ module.exports = function(webpackEnv) {
         // 'react-native': 'react-native-web',
       },
       plugins: [
+        new CustomResolverPlugin(paths.appSrc),
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
         // guards against forgotten dependencies and such.
         PnpWebpackPlugin,
@@ -348,7 +350,7 @@ module.exports = function(webpackEnv) {
                         },
                       },
                     },
-                  ],
+                  ]
                 ],
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/

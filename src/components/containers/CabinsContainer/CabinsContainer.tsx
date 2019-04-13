@@ -1,15 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import PropTypes from 'prop-types';
 import IntlMessage from '/components/views/IntlMessage/IntlMessage';
 import StaticBackground from '/components/views/StaticBackground/StaticBackground';
 import SectionContainer from '/components/views/SectionContainer/SectionContainer';
 import SearchCabinsFormContainer from '/components/containers/SearchForm/SearchForm';
 import CabinSearchResults from './components/CabinSearchResults/CabinSearchResults';
-import { searchCabins } from './actions';
+import { searchCabins } from '/components/containers/CabinsContainer/actions';
 
-const CabinsContainer = props => {
+interface ICabinsContainer {
+  searchCabins: typeof searchCabins,
+  cabins: any,
+  isSearching: boolean
+}
+
+const CabinsContainer: React.FC<ICabinsContainer> = props => {
   return (
     <section className="CabinsContainer">
       <StaticBackground
@@ -26,12 +31,6 @@ const CabinsContainer = props => {
       </SectionContainer>
     </section>
   );
-};
-
-CabinsContainer.propTypes = {
-  isSearching: PropTypes.bool,
-  cabins: PropTypes.any,
-  searchCabins: PropTypes.func
 };
 
 const mapDispatchToProps = dispatch => {

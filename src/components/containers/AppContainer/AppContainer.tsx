@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
@@ -12,7 +11,12 @@ import SplashScreen from '/components/views/SplashScreen/SplashScreen';
 import CabinsContainer from '/components/containers/CabinsContainer/CabinsContainer';
 import { initApp } from './actions';
 
-const AppContainer = props => {
+interface IAppContainer {
+  initApp: typeof initApp,
+  isInitialized: boolean
+}
+
+const AppContainer: React.FC<IAppContainer> = props => {
   useEffect(() => {
     props.initApp();
   }, []);
@@ -38,15 +42,8 @@ const AppContainer = props => {
   );
 };
 
-AppContainer.propTypes = {
-  isInitialized: PropTypes.bool,
-  initApp: PropTypes.func
-};
-
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    initApp
-  }, dispatch);
+  return bindActionCreators({ initApp }, dispatch);
 };
 
 const mapStateToProps = ({ app }) => {

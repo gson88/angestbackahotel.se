@@ -5,10 +5,7 @@ export default (message, values) => {
     return '';
   }
 
-  let translatedMessage = intl.get(message, values);
-  if (!translatedMessage) {
-    translatedMessage = message;
-  }
-
+  const translatedMessage = intl.get(message, values) || message;
+  
   return translatedMessage;
 };

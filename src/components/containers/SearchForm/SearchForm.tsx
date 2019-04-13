@@ -1,12 +1,16 @@
 import React, { useMemo, useCallback } from 'react';
-import PropTypes from 'prop-types';
 import { Input, Button } from '/components/views/form/index';
 import IntlMessage from '/components/views/IntlMessage/IntlMessage';
 import { formatDate, getTomorrowsDate } from '/utils/date-utils/date-utils';
 import useInputState from '/hooks/use-input-state';
 import Form from '/components/views/form/Form/Form';
+import { searchCabins } from '/components/containers/CabinsContainer/actions';
 
-const SearchForm = props => {
+interface ISearchForm {
+  onSearch: typeof searchCabins
+}
+
+const SearchForm: React.FC<ISearchForm> = props => {
   const todayDateString = useMemo(() => formatDate(new Date(), 'Y-MM-DD'), []);
   const tomorrowDateString = useMemo(() => formatDate(getTomorrowsDate(), 'Y-MM-DD'), []);
 
@@ -53,10 +57,6 @@ const SearchForm = props => {
       </article>
     </Form>
   );
-};
-
-SearchForm.propTypes = {
-  onSearch: PropTypes.func
 };
 
 export default SearchForm;
