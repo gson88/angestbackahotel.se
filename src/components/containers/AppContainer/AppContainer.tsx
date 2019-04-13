@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Redirect } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
@@ -8,7 +9,6 @@ import routes from '/routes';
 import Header from '/components/views/Header/Header';
 import Footer from '/components/views/Footer/Footer';
 import SplashScreen from '/components/views/SplashScreen/SplashScreen';
-import CabinsContainer from '/components/containers/CabinsContainer/CabinsContainer';
 import { initApp } from './actions';
 
 interface IAppContainer {
@@ -31,7 +31,11 @@ const AppContainer: React.FC<IAppContainer> = props => {
             <Header />
             <main role="main">
               <Switch>
-                <Route exact path={routes.cabins.path} component={CabinsContainer} />
+                { Object.values(routes).map(route => (
+                  <Route key={route.path} exact path={route.path} component={route.component} />
+                ))}
+
+                <Route render={() => <Redirect to={routes.cabins.path} />} />
               </Switch>
             </main>
             <Footer />
