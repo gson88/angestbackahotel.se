@@ -1,10 +1,10 @@
 import React, { useMemo, useCallback } from 'react';
-import { Input, Button } from '/components/views/form/index';
-import IntlMessage from '/components/views/IntlMessage/IntlMessage';
-import { formatDate, getTomorrowsDate } from '/utils/date-utils/date-utils';
-import useInputState from '/hooks/use-input-state';
-import Form from '/components/views/form/Form/Form';
-import { searchCabins } from '/components/containers/CabinsContainer/actions';
+import { Input, Button } from '~components/views/form/index';
+import IntlMessage from '~components/views/IntlMessage/IntlMessage';
+import { formatDate, getTomorrowsDate } from '~utils/date-utils/date-utils';
+import useInputState from '~hooks/use-input-state';
+import Form from '~components/views/form/Form/Form';
+import { searchCabins } from '~components/containers/CabinsContainer/actions';
 
 interface ISearchForm {
   onSearch: typeof searchCabins

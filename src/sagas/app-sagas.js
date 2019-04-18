@@ -1,7 +1,7 @@
 import { takeLatest, put, select } from 'redux-saga/effects';
-import AppContainerConstants from '/components/containers/AppContainer/constants';
+import AppContainerConstants from '~components/containers/AppContainer/constants';
 import intl from 'react-intl-universal';
-import enUS from '/i18n/messages.18n';
+import enUS from '~i18n/messages.18n';
 
 const fakeTimeout = msec => new Promise(resolve => {
   setTimeout(resolve, msec);

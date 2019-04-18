@@ -1,5 +1,5 @@
 import CabinsContainerStore from './data/CabinsContainerStore';
-import CabinsContainerConstants from './constants';
+import CabinsContainerConstants from 'components/containers/CabinsContainer/constants';
 
 function getInitialState () {
   return new CabinsContainerStore();

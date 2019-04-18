@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '/components/views/form/Button/Button';
-import IntlMessage from '/components/views/IntlMessage/IntlMessage';
-import Icon from '/components/views/icons/Icon/Icon';
+import Button from '~components/views/form/Button/Button';
+import IntlMessage from '~components/views/IntlMessage/IntlMessage';
+import Icon from '~components/views/icons/Icon/Icon';
 
 const BookCabinButton = ({ onClick, isAvailable }) => {
   if (!isAvailable) {

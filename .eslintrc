@@ -4,7 +4,7 @@
     "plugin:react/recommended",
 //    "react-app"
   ],
-  "plugins": ["react"],
+  "plugins": ["react", "typescript"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {

@@ -4,11 +4,11 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
-import history from '/store/history';
-import routes from '/routes';
-import Header from '/components/views/Header/Header';
-import Footer from '/components/views/Footer/Footer';
-import SplashScreen from '/components/views/SplashScreen/SplashScreen';
+import history from '~store/history';
+import routes from '~routes';
+import Header from '~components/views/Header/Header';
+import Footer from '~components/views/Footer/Footer';
+import SplashScreen from '~components/views/SplashScreen/SplashScreen';
 import { initApp } from './actions';
 
 interface IAppContainer {

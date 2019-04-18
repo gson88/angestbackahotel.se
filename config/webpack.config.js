@@ -25,7 +25,8 @@ const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpack
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
 
 const tailwindcss = require('tailwindcss');
-const CustomResolverPlugin = require('./CustomResolverPlugin');
+const TsConfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+// const CustomResolverPlugin = require('./CustomResolverPlugin');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
@@ -254,8 +255,10 @@ module.exports = function(webpackEnv) {
       // https://github.com/facebook/create-react-app/issues/253
       modules: ['node_modules'].concat(
         // It is guaranteed to exist because we tweak it in `env.js`
-        process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
+        process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
+        paths.appSrc
       ),
+
       // These are the reasonable defaults supported by the Node ecosystem.
       // We also include JSX as a common component filename extension to support
       // some tools, although we do not recommend using it, see:
@@ -271,10 +274,12 @@ module.exports = function(webpackEnv) {
         // 'react-native': 'react-native-web',
       },
       plugins: [
-        new CustomResolverPlugin(paths.appSrc),
+        new TsConfigPathsPlugin({ logLevel: 'info', extensions: ['ts', 'tsx', 'js', 'jsx'] }),
+        // new CustomResolverPlugin(paths.appSrc),
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
         // guards against forgotten dependencies and such.
         PnpWebpackPlugin,
+
         // Prevents users from importing files from outside of src/ (or node_modules/).
         // This often causes confusion because we only process files within src/ with babel.
         // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
@@ -350,7 +355,7 @@ module.exports = function(webpackEnv) {
                         },
                       },
                     },
-                  ]
+                  ],
                 ],
                 // This is a feature of `babel-loader` for webpack (not Babel itself).
                 // It enables caching results in ./node_modules/.cache/babel-loader/
@@ -575,9 +580,7 @@ module.exports = function(webpackEnv) {
       // TypeScript type checking
       useTypeScript &&
         new ForkTsCheckerWebpackPlugin({
-          typescript: resolve.sync('typescript', {
-            basedir: paths.appNodeModules,
-          }),
+          typescript: resolve.sync('typescript'),
           async: isEnvDevelopment,
           useTypescriptIncrementalApi: true,
           checkSyntacticErrors: true,

@@ -1,4 +1,4 @@
-import CabinsContainer from '/components/containers/CabinsContainer/CabinsContainer';
+import CabinsContainer from 'components/containers/CabinsContainer/CabinsContainer';
 
 export default {
   cabins: {

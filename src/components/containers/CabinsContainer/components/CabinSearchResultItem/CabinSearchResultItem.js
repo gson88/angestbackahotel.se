@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import CabinRecord from '../../data/CabinRecord';
-import IntlMessage from '/components/views/IntlMessage/IntlMessage';
+import IntlMessage from 'components/views/IntlMessage/IntlMessage';
 import { FooterItem, UserRatingIcons, BookCabinButton } from './index';
 import './CabinSearchResultItem.scss';
 

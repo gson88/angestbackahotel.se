@@ -1,5 +1,5 @@
 import React from 'react';
-import { SpinningIcon } from '/components/views/icons';
+import { SpinningIcon } from '~components/views/icons';
 
 const SplashScreen = () => {
   return (
