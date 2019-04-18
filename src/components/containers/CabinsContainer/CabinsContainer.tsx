@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import IntlMessage from '~components/views/IntlMessage/IntlMessage';
-import StaticBackground from '~components/views/StaticBackground/StaticBackground';
-import SectionContainer from '~components/views/SectionContainer/SectionContainer';
-import SearchCabinsFormContainer from '~components/containers/SearchForm/SearchForm';
+import IntlMessage from '~/components/views/IntlMessage/IntlMessage';
+import StaticBackground from '~/components/views/StaticBackground/StaticBackground';
+import SectionContainer from '~/components/views/SectionContainer/SectionContainer';
+import SearchCabinsFormContainer from '~/components/containers/SearchForm/SearchForm';
 import CabinSearchResults from './components/CabinSearchResults/CabinSearchResults';
-import { searchCabins } from '~components/containers/CabinsContainer/actions';
+import { searchCabins } from '~/components/containers/CabinsContainer/actions';
 
 interface ICabinsContainer {
   searchCabins: typeof searchCabins,

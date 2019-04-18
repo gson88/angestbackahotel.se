@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Icon from 'components/views/icons/Icon/Icon';
+import Icon from '~/components/views/icons/Icon/Icon';
 
 const getUserRatingIcons = userRating => {
   return [1, 2, 3, 4, 5].map(i => {

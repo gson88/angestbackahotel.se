@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -256,7 +254,7 @@ module.exports = function(webpackEnv) {
       modules: ['node_modules'].concat(
         // It is guaranteed to exist because we tweak it in `env.js`
         process.env.NODE_PATH.split(path.delimiter).filter(Boolean),
-        paths.appSrc
+        // paths.appSrc
       ),
 
       // These are the reasonable defaults supported by the Node ecosystem.
@@ -269,12 +267,13 @@ module.exports = function(webpackEnv) {
         .map(ext => `.${ext}`)
         .filter(ext => useTypeScript || !ext.includes('ts')),
       alias: {
+        '~': paths.appSrc
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         // 'react-native': 'react-native-web',
       },
       plugins: [
-        new TsConfigPathsPlugin({ logLevel: 'info', extensions: ['ts', 'tsx', 'js', 'jsx'] }),
+        // new TsConfigPathsPlugin({ logLevel: 'info', extensions: ['ts', 'tsx', 'js', 'jsx'] }),
         // new CustomResolverPlugin(paths.appSrc),
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
         // guards against forgotten dependencies and such.

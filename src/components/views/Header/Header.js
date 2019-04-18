@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import IntlMessage from '~components/views/IntlMessage/IntlMessage';
-import routes from '~routes';
+import IntlMessage from '~/components/views/IntlMessage/IntlMessage';
+import routes from '~/routes';
 import './Header.scss';
 
 const Header = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import SpinningIcon from '~components/views/icons/SpinningIcon/SpinningIcon';
+import SpinningIcon from '~/components/views/icons/SpinningIcon/SpinningIcon';
 
 const Button = ({ type, className, onClick, isLoading, children }) => {
   return (

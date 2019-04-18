@@ -1,8 +1,8 @@
 import { takeLatest } from 'redux-saga/effects';
-import CabinsBookingFormContainerConstants from 'components/containers/CabinsContainer/constants';
-import CabinsAPI from 'api/cabins-api';
+import CabinsBookingFormContainerConstants from '~/components/containers/CabinsContainer/constants';
+import CabinsAPI from '~/api/cabins-api';
 import requestSaga from './request-saga';
-import { IsearchCabins } from 'components/containers/CabinsContainer/actions';
+import { IsearchCabins } from '~/components/containers/CabinsContainer/actions';
 
 interface IperformCabinsSearchSaga {
   payload: IsearchCabins

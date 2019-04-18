@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import IntlMessage from '~components/views/IntlMessage/IntlMessage';
-import getTranslation from '~utils/get-translation/get-translation';
+import IntlMessage from '~/components/views/IntlMessage/IntlMessage';
+import getTranslation from '~/utils/get-translation/get-translation';
 
 const Input = props => {
   const placeholder = getTranslation(props.placeholderLangKey);

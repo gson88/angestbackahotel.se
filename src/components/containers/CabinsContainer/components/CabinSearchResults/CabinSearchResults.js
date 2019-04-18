@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SpinningIcon from 'components/views/icons/SpinningIcon/SpinningIcon';
+import SpinningIcon from '~/components/views/icons/SpinningIcon/SpinningIcon';
 import CabinSearchResultItem from '../CabinSearchResultItem/CabinSearchResultItem';
 import './CabinSearchResults.scss';
 
