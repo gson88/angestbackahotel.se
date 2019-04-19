@@ -1,4 +1,4 @@
-import CabinsContainerStore from './data/CabinsContainerStore';
+import CabinsContainerStore from '~/components/containers/CabinsContainer/data/CabinsContainerStore';
 import CabinsContainerConstants from '~/components/containers/CabinsContainer/constants';
 
 function getInitialState () {
@@ -7,8 +7,7 @@ function getInitialState () {
 
 const defaultState = getInitialState();
 
-/** @param state {CabinsContainerStore} */
-export default (state = defaultState, action = {}) => {
+export default (state = defaultState, action: any = {}): CabinsContainerStore => {
   switch (action.type) {
     case CabinsContainerConstants.SEARCH_CABIN_REQUEST:
       return state.merge({

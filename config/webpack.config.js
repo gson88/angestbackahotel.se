@@ -267,6 +267,7 @@ module.exports = function(webpackEnv) {
         .map(ext => `.${ext}`)
         .filter(ext => useTypeScript || !ext.includes('ts')),
       alias: {
+        '~/': paths.appSrc,
         '~': paths.appSrc
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
@@ -419,6 +420,9 @@ module.exports = function(webpackEnv) {
                 sourceMap: isEnvProduction && shouldUseSourceMap,
                 modules: true,
                 getLocalIdent: getCSSModuleLocalIdent,
+                includePaths: [
+                  paths.sassPath
+                ]
               }),
             },
             // Opt-in support for SASS (using .scss or .sass extensions).
@@ -432,7 +436,8 @@ module.exports = function(webpackEnv) {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader', {
+                'sass-loader',
+                {
                   includePaths: [
                     paths.sassPath
                   ]
@@ -455,7 +460,12 @@ module.exports = function(webpackEnv) {
                   modules: true,
                   getLocalIdent: getCSSModuleLocalIdent,
                 },
-                'sass-loader'
+                'sass-loader',
+                {
+                  includePaths: [
+                    paths.sassPath
+                  ]
+                }
               ),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.

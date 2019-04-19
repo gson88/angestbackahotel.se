@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from '~/store/Store';
-import AppContainer from '~//components/containers/AppContainer/AppContainer';
+import AppContainer from '~/components/containers/AppContainer/AppContainer';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import './index.scss';
 
