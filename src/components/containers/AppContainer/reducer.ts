@@ -7,8 +7,7 @@ function getInitialState () {
 
 const defaultState = getInitialState();
 
-/** @param state {AppStore} */
-export default (state = defaultState, action = {}) => {
+export default (state: AppStore = defaultState, action: any = {}): AppStore => {
   switch (action.type) {
     case AppContainerConstants.APP_INITIALIZING:
       return state.merge({

@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { IAppState } from '~/reducers/app-reducer';
 import IntlMessage from '~/components/views/IntlMessage/IntlMessage';
 import StaticBackground from '~/components/views/StaticBackground/StaticBackground';
 import SectionContainer from '~/components/views/SectionContainer/SectionContainer';
-import { IAppState } from '~/reducers/app-reducer';
+import { getAdventures } from './actions';
 import style from './AdventuresContainer.module.scss';
 
-const AdventuresContainer: React.FC = () => {
+interface IAdventuresContainer {
+  getAdventures: typeof getAdventures
+}
+
+const AdventuresContainer: React.FC<IAdventuresContainer> = props => {
+  useEffect(() => {
+    props.getAdventures();
+  }, []);
+
   return (
     <section className={style.AdventuresContainer}>
       <StaticBackground src="/images/adventures/adventure1.jpg" height="400px">
@@ -30,7 +39,7 @@ const mapStateToProps = (state: IAppState) => {
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators({
-
+    getAdventures
   }, dispatch);
 };
 

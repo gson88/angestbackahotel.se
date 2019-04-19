@@ -1,4 +1,4 @@
-export const createGetRequest = (endpoint: string, parameters: any): Request => {
+export const createGetRequest = (endpoint: string, parameters?: any): Request => {
   let url = endpoint;
   if (parameters) {
     url = url.concat('?', objectToGetParameters(parameters));

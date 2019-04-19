@@ -1,6 +1,6 @@
 import { handleNetworkError, parseJsonOrThrow, returnIfOKOrThrow } from './middlewares/index';
 
-const doFetch = (req: Request) => {
+const doFetch = <T>(req: Request): Promise<T> => {
   return fetch(req)
     .catch(handleNetworkError)
     .then(parseJsonOrThrow)
