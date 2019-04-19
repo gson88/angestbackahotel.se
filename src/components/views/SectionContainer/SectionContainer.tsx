@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import cn from 'classnames';
 
 const SectionContainer = ({ className, children }) => {
   return (
     <section
-      className={
-        classnames(className, 'container mx-auto p-8 xssm:p-4 xssm:pt-8')
-      }
-    >
+      className={cn(className, 'container mx-auto p-8 xssm:p-4 xssm:pt-8')}>
       { children }
     </section>
   );

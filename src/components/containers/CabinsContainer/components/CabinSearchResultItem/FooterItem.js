@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import IntlMessage from '/components/views/IntlMessage/IntlMessage';
+import IntlMessage from '~/components/views/IntlMessage/IntlMessage';
 
 const FooterItem = ({ className, titleLangKey, content }) => {
   return (

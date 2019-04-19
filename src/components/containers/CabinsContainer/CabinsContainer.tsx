@@ -1,17 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import IntlMessage from '/components/views/IntlMessage/IntlMessage';
-import StaticBackground from '/components/views/StaticBackground/StaticBackground';
-import SectionContainer from '/components/views/SectionContainer/SectionContainer';
-import SearchCabinsFormContainer from '/components/containers/SearchForm/SearchForm';
+import { List } from 'immutable';
+import { IAppState } from '~/reducers/app-reducer';
+import CabinRecord from '~/components/containers/CabinsContainer/data/CabinRecord';
+import IntlMessage from '~/components/views/IntlMessage/IntlMessage';
+import StaticBackground from '~/components/views/StaticBackground/StaticBackground';
+import SectionContainer from '~/components/views/SectionContainer/SectionContainer';
+import SearchCabinsFormContainer from '~/components/containers/SearchForm/SearchForm';
 import CabinSearchResults from './components/CabinSearchResults/CabinSearchResults';
-import { searchCabins } from '/components/containers/CabinsContainer/actions';
+import { searchCabins } from '~/components/containers/CabinsContainer/actions';
 
 interface ICabinsContainer {
-  searchCabins: typeof searchCabins,
-  cabins: any,
-  isSearching: boolean
+  cabins: List<CabinRecord>,
+  isSearching: boolean,
+  searchCabins: typeof searchCabins
 }
 
 const CabinsContainer: React.FC<ICabinsContainer> = props => {
@@ -20,8 +23,11 @@ const CabinsContainer: React.FC<ICabinsContainer> = props => {
       <StaticBackground
         src="/images/stugan/stug6.jpg"
         height="400px">
-        <IntlMessage wrapper={<h1 />} message="cabins.book_a_cabin.header" />
+        <h1>
+          <IntlMessage message="cabins.book_a_cabin.header" />
+        </h1>
       </StaticBackground>
+
       <SectionContainer>
         <SearchCabinsFormContainer onSearch={props.searchCabins} />
         <CabinSearchResults
@@ -34,17 +40,12 @@ const CabinsContainer: React.FC<ICabinsContainer> = props => {
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    searchCabins
-  }, dispatch);
+  return bindActionCreators({ searchCabins }, dispatch);
 };
 
-const mapStateToProps = ({ cabins }) => {
+const mapStateToProps = ({ cabins }: IAppState) => {
   const { isSearching, cabins: cabinList } = cabins;
-  return {
-    isSearching,
-    cabins: cabinList
-  };
+  return { isSearching, cabins: cabinList };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CabinsContainer);

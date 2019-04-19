@@ -33,3 +33,27 @@ $xl-breakpoint: '(min-width: 1200px)';
     @content;
   }
 }
+
+@mixin xs-sm () {
+  @media #{$xs-breakpoint}, #{$sm-breakpoint} {
+    @content;
+  }
+}
+
+@mixin xs-sm-md () {
+  @media #{$xs-breakpoint}, #{$sm-breakpoint}, #{$md-breakpoint} {
+    @content;
+  }
+}
+
+@mixin sm-md () {
+  @media #{$sm-breakpoint}, #{$md-breakpoint} {
+    @content;
+  }
+}
+
+@mixin md-lg () {
+  @media #{$md-breakpoint}, #{$lg-breakpoint} {
+    @content;
+  }
+}

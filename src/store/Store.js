@@ -3,8 +3,8 @@ import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
 import history from './history';
-import rootReducer from '/reducers/root-reducer';
-import rootSaga from '/sagas/root-saga';
+import rootReducer from '~/reducers/root-reducer';
+import rootSaga from '~/sagas/root-saga';
 
 const checkLoggingVar = () => true;
 

@@ -4,11 +4,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
-import history from '/store/history';
-import routes from '/routes';
-import Header from '/components/views/Header/Header';
-import Footer from '/components/views/Footer/Footer';
-import SplashScreen from '/components/views/SplashScreen/SplashScreen';
+import { IAppState } from '~/reducers/app-reducer';
+import history from '~/store/history';
+import routes from '~/routes';
+import Header from '~/components/views/Header/Header';
+import Footer from '~/components/views/Footer/Footer';
+import SplashScreen from '~/components/views/SplashScreen/SplashScreen';
 import { initApp } from './actions';
 
 interface IAppContainer {
@@ -23,25 +24,23 @@ const AppContainer: React.FC<IAppContainer> = props => {
 
   return (
     <ConnectedRouter history={history}>
-      <div className="w-full h-full">
-        { !props.isInitialized ? (
-          <SplashScreen />
-        ) : (
-          <>
-            <Header />
-            <main role="main">
-              <Switch>
-                { Object.values(routes).map(route => (
-                  <Route key={route.path} exact path={route.path} component={route.component} />
-                ))}
+      { !props.isInitialized ? (
+        <SplashScreen />
+      ) : (
+        <>
+          <Header />
+          <main role="main">
+            <Switch>
+              { Object.values(routes).map(route => (
+                <Route key={route.path} exact path={route.path} component={route.component} />
+              ))}
 
-                <Route render={() => <Redirect to={routes.cabins.path} />} />
-              </Switch>
-            </main>
-            <Footer />
-          </>
-        )}
-      </div>
+              <Route render={() => <Redirect to={routes.cabins.path} />} />
+            </Switch>
+          </main>
+          <Footer />
+        </>
+      )}
     </ConnectedRouter>
   );
 };
@@ -50,7 +49,7 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators({ initApp }, dispatch);
 };
 
-const mapStateToProps = ({ app }) => {
+const mapStateToProps = ({ app }: IAppState) => {
   const { isInitialized } = app;
   return { isInitialized };
 };
