@@ -2,7 +2,7 @@
 @import 'palette';
 @import 'viewports';
 
-header.Header {
+.Header {
   background-color: $headerBackgroundColor;
   color: $headerFontColor;
 
@@ -21,7 +21,7 @@ header.Header {
     }
   }
 
-  nav {
+  nav.nav {
     > :not(:last-of-type) {
       margin-right: $largeSpacing;
     }
@@ -31,7 +31,7 @@ header.Header {
     }
   }
 
-  .temp-right {
+  .temp {
     .xs, .sm, .md, .lg, .xl {
       display: none;
     }

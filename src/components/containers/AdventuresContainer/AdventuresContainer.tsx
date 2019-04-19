@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { List } from 'immutable';
 import { IAppState } from '~/reducers/app-reducer';
+import AdventureRecord from './data/AdventureRecord';
 import IntlMessage from '~/components/views/IntlMessage/IntlMessage';
 import StaticBackground from '~/components/views/StaticBackground/StaticBackground';
 import SectionContainer from '~/components/views/SectionContainer/SectionContainer';
@@ -9,7 +11,8 @@ import { getAdventures } from './actions';
 import style from './AdventuresContainer.module.scss';
 
 interface IAdventuresContainer {
-  getAdventures: typeof getAdventures
+  getAdventures: typeof getAdventures;
+  adventureList: List<AdventureRecord>
 }
 
 const AdventuresContainer: React.FC<IAdventuresContainer> = props => {
@@ -26,21 +29,21 @@ const AdventuresContainer: React.FC<IAdventuresContainer> = props => {
       </StaticBackground>
 
       <SectionContainer>
-        Yo yo yo
+        Adventures :D :D
         <div style={{ height: '3000px' }} />
       </SectionContainer>
     </section>
   );
 };
 
-const mapStateToProps = (state: IAppState) => {
-  return {};
+const mapStateToProps = ({ adventures }: IAppState) => {
+  const { isLoading, adventureList } = adventures;
+
+  return { isLoading, adventureList };
 };
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators({
-    getAdventures
-  }, dispatch);
+  return bindActionCreators({ getAdventures }, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdventuresContainer);

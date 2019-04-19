@@ -1,4 +1,5 @@
 import { Record, List } from 'immutable';
+import ImageRecord from '~/data/ImageRecord';
 
 const keys = {
   id: '',
@@ -16,4 +17,15 @@ const keys = {
   }
 };
 
-export default class CabinRecord extends Record(keys) {}
+export default class CabinRecord extends Record(keys) {
+  constructor (values) {
+    super(values);
+
+    if (values && values.images) {
+      return this.set('images', List(
+        values.images.map(image => new ImageRecord(image))
+      ));
+    }
+  }
+
+}

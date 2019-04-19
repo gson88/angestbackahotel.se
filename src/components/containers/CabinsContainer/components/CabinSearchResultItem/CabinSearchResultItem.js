@@ -37,7 +37,7 @@ const CabinSearchResultItem = ({ cabin }) => {
       </section>
       <section className="images w-1/2 flex xssm:w-full xssm:h-full">
         <div className="image h-full w-full" style={{
-          backgroundImage: `url("${cabin.images[0].url}")`
+          backgroundImage: `url("${cabin.images.get(0).url}")`
         }} />
       </section>
     </article>

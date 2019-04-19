@@ -11,7 +11,8 @@ export default (state = defaultState, action: any = {}): CabinsContainerStore =>
   switch (action.type) {
     case CabinsContainerConstants.SEARCH_CABIN_REQUEST:
       return state.merge({
-        isSearching: true
+        isSearching: true,
+        error: undefined
       });
 
     case CabinsContainerConstants.SEARCH_CABIN_REQUEST_SUCCESS:
